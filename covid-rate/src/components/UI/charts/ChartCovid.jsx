@@ -1,5 +1,12 @@
 import React from "react";
-import { Chart, CategoryScale, LineController, LineElement, PointElement, LinearScale} from "chart.js"
+import { Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,} from "chart.js"
 import { Line } from "react-chartjs-2";
 
 const DynamicChart = (coviddata) => {
@@ -9,18 +16,20 @@ const DynamicChart = (coviddata) => {
   }
 
   Chart.register(
-    CategoryScale, 
-    LineController,
-    LineElement, 
-    PointElement, 
-    LinearScale, 
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
   )
 
   var labels = []
   var data = []
   console.log(coviddata.coviddata)
   coviddata.coviddata.map((element) => {
-    labels.push(element.Date);
+    labels.push(element.Date.slice(0,-10));
     data.push(element.Cases);
   });
 
@@ -39,12 +48,38 @@ const DynamicChart = (coviddata) => {
         },
     ]};
 
+  var chartOptions = {
+    responsive: true,
+      plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Covid Cases',
+      },
+      scales: {
+        y:
+          {
+            min: 2500,
+            max: 7000,
+            stepSize: 100,
+          },
+        x:
+          {
+            
+          },
+      },
+  },
+  }
+
   return (
     <div className="Chart">
-      <h1>Bar Chart</h1>
+      <h1>Covid Rate Chart</h1>
       <div>
         <Line
           data={chartData}
+          options={chartOptions}
         />
       </div>
     </div>
