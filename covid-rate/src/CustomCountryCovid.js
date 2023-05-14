@@ -8,6 +8,7 @@ import {useCases} from "./components/hooks/useCases";
 import CasesList from "./components/CasesList"
 import WorldRateItem from "./components/UI/items/CaseWorldItem";
 import preparedata from "./components/utils/DatePrepare";
+import DynamicChart from "./components/UI/charts/ChartCovid";
 import "./styles/CountryRate.css"
 
 
@@ -36,6 +37,7 @@ function CustomCountryCovid(){
                 const [global, byCountry] = await CasesService.getWorldSummaryCovidRate();
             if(response !== 0){
                 setTotalCases(byCountry.find(item=>item.CountryCode === filter.sort.value));
+                console.log(response);
                 setCases(response);
                 setIsdis(false);
                 setSortedAndSearchCases(response); 
@@ -80,6 +82,7 @@ function CustomCountryCovid(){
                         </div>
                         <div className="general-stat">
                             <WorldRateItem info={totalcases} query={"Country"}/>
+                            <DynamicChart coviddata={sortedAndSearchCases}/>
                         </div>
                     </div>
                 }
