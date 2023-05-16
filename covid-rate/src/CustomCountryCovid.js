@@ -63,15 +63,18 @@ function CustomCountryCovid(){
                 <div className="blocks-container">
             {isCountries
                 ?<div style={{position: "relative", right: "-46%", marginTop:"5%"}}><Loader/></div> 
-                :<><div className="filter-block" style={{flexDirection:"column"}}><CasesFilter
+                :<><div className="filter-block" style={{flexDirection:"column"}}>
+                    <CasesFilter
                     additional={countries}
                     filter={filter}
                     setFilter={setFilter}
                     sortstatus = {isdis}    
-                />
-                <MyButton onClick={() => fetchCases()}>
-                    Search Covid Cases
-                </MyButton>
+                    />
+                    <div style={{display: "flex", justifyContent: "space-around"}}>
+                        <MyButton onClick={() => fetchCases()}>
+                            Search Covid Cases
+                        </MyButton>
+                    </div>
                 </div> 
                 {isCases
                     ? <div style={{display: 'flex', position: "relative", right: "45%", marginTop:"5%"}}><Loader/></div>

@@ -13,7 +13,7 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                          {value:"Down", label:"DownDate"}]
 
     return (
-        <div>
+        <div className="select-block-wrap">
            <div className="select-block"> 
             <MySelect
                 isDisabled = {false}
@@ -37,23 +37,19 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                 placeholder={"Choose Filter"}
             />
             </div> 
-            <div style={{display:"flex", flexDirection:"column", justifyContent: "center", marginBottom: "20px"}}>
-                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", fontSize:"18px", width:"250px", marginLeft:"20px"}}>
-                    <p>From</p>
-                    <p>To</p>
-                </div>
-                <div style={{display:"flex", flexDirection:"row", fontSize:"18px"}}>
+                <div style={{display: "flex", flexDirection:"row", fontSize: "24px", columnGap: "2%", padding:"3px"}}>
+                <p>From</p>
                     <CalendarSelect 
                         format= {"yyy-MM-dd"}
                         value={filter.data_from} 
-                        onChange={e=> setFilter({...filter, data_from: e})}/>  
+                        onChange={e=> setFilter({...filter, data_from: e})}/> 
+                <p>To</p> 
                     <CalendarSelect 
                         format= {"yyy-MM-dd"}
                         value={filter.data_to} 
                         onChange={e => setFilter({...filter, data_to: e})}/>
                 </div>
             </div>
-        </div>
     );
 
 };
