@@ -2,9 +2,9 @@ import React from "react";
 
 const WorldRateItem = (props) =>{
     return(
-        <div className="world-summary-item">
-            <h2>{props.query} Covid Summary Rate</h2>
-            <div style={{display:"flex", justifyContent:"space-around" ,margin: "10px", fontSize: "18px"}}>
+        <div className="p-wpad rounded-sm border-amber-400 border-2 w-600 -mt-[10px]">
+            <h2 className=" font-semibold">{props.query} Covid Summary Rate</h2>
+            <div className="flex, justify-around m-2.5 text-xl">
                 <div>
                     <p>Total Confirmed Cases:</p>
                     <p>New Confirmed Cases: </p>
