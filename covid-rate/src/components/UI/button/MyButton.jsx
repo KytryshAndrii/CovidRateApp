@@ -1,10 +1,10 @@
 import React from "react";
-import classes from "./MyButton.module.css";
 
 const MyButton = ({children, ...props}) => {
 
     return(
-        <button {...props} className={classes.myBtn}>
+        <button {...props} className="p-p-btn text-orange-950 text-xl rounded-md border-amber-400 border-2 cursor-pointer 
+        hover:bg-amber-400 hover:text-slate-50 hover:ease-in-out hover:duration-50">
             {children}
         </button>
     );

@@ -4,8 +4,9 @@ import Wave from 'react-wavify'
 function WaveSvg(){
     
     return (
-        <div style={{transform: "rotate(180deg)",position:"relative", top:"-4px"}}>
-            <Wave fill='#fcc300'
+        <div className="relative rotate-180 -top-2">
+            <Wave 
+                fill='#fcc300'
                 paused={false}
                 options={{
                 height: 30,

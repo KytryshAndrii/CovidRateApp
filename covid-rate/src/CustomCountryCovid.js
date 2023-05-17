@@ -9,7 +9,7 @@ import CasesList from "./components/CasesList"
 import WorldRateItem from "./components/UI/items/CaseWorldItem";
 import preparedata from "./components/utils/DatePrepare";
 import DynamicChart from "./components/UI/charts/ChartCovid";
-import "./styles/CountryRate.css"
+import "./index.css"
 
 
 function CustomCountryCovid(){
@@ -59,11 +59,11 @@ function CustomCountryCovid(){
     },[filter.query, result])
 
     return(
-            <div className="CountryRate">
-                <div className="blocks-container">
+            <div className="w-screen">
+                <div>
             {isCountries
-                ?<div style={{position: "relative", right: "-46%", marginTop:"5%"}}><Loader/></div> 
-                :<><div className="filter-block" style={{flexDirection:"column"}}>
+                ?<div className="relative mt-52 left-1/2"><Loader/></div> 
+                :<><div className="flex-col p-cpad ml-[12.5%] mt-[4%] w-[77%] h-[155px] rounded-xl shadow-4xl border-2">
                     <CasesFilter
                     additional={countries}
                     filter={filter}

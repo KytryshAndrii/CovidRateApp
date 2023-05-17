@@ -1,14 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
 import WaveSvg from "./components/UI/header-svg/WaveSVG";
+import "./index.css";
 
 const Layout = () => {
   return (
-    <div style={{width:"100vw"}}>
+    <div className="w-screen">
       <WaveSvg/>
-      <div className="header-bar">
+      <div className="flex justify-center list-none shadow-lg">
         <nav>
           <ul>
-            <h1 className="bar-item" style={{color: "#fcc300", fontSize: "40px"}}>
+            <h1 className="bar-item text-amber-400 text-5xl">
               Covid Rate App
             </h1>
             <li className="bar-item">
