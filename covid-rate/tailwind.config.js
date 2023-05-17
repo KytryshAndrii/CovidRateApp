@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}',],
   theme: {
@@ -10,13 +11,22 @@ module.exports = {
       padding:{
         'wpad': '10px 25px',
         'p-btn': '5px 15px',
-        'cpad': '10px 15px',
+        'cpad': '18px 15px',
       },
       width:{
         "600": "600px",
       }
+      
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl') },
+        'h2': { fontSize: theme('fontSize.xl') },
+        'h3': { fontSize: theme('fontSize.lg') },
+      })
+    })
+  ],
 }
 

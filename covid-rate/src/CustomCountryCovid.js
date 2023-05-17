@@ -9,7 +9,7 @@ import CasesList from "./components/CasesList"
 import WorldRateItem from "./components/UI/items/CaseWorldItem";
 import preparedata from "./components/utils/DatePrepare";
 import DynamicChart from "./components/UI/charts/ChartCovid";
-import "./index.css"
+import "./styles/index.css"
 
 
 function CustomCountryCovid(){
@@ -62,7 +62,7 @@ function CustomCountryCovid(){
             <div className="w-screen">
                 <div>
             {isCountries
-                ?<div className="relative mt-52 left-1/2"><Loader/></div> 
+                ?<div className="relative mt-[90px] left-[47%] "><Loader/></div> 
                 :<><div className="flex-col p-cpad ml-[12.5%] mt-[4%] w-[77%] h-[155px] rounded-xl shadow-4xl border-2">
                     <CasesFilter
                     additional={countries}
@@ -70,20 +70,20 @@ function CustomCountryCovid(){
                     setFilter={setFilter}
                     sortstatus = {isdis}    
                     />
-                    <div style={{display: "flex", justifyContent: "space-around"}}>
+                    <div className="flex justify-around">
                         <MyButton onClick={() => fetchCases()}>
                             Search Covid Cases
                         </MyButton>
                     </div>
                 </div> 
                 {isCases
-                    ? <div style={{display: 'flex', position: "relative", right: "45%", marginTop:"5%"}}><Loader/></div>
+                    ? <div className="relative flex justify-center"><Loader/></div>
                     : 
-                    <div className="stat-block">
-                        <div className="stat-list">
+                    <div className="relative flex justify-evenly mt-[3%] ml-[15%]">
+                        <div className="w-600px]">
                                 <CasesList cases={sortedAndSearchCases}/>
                         </div>
-                        <div className="general-stat">
+                        <div className="ml-[25px]">
                             <WorldRateItem info={totalcases} query={"Country"}/>
                             <DynamicChart coviddata={sortedAndSearchCases}/>
                         </div>

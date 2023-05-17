@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import WaveSvg from "./components/UI/header-svg/WaveSVG";
-import "./index.css";
+import "./styles/index.css";
 
 const Layout = () => {
   return (

@@ -3,7 +3,7 @@ import Loader from "./components/UI/Loader/Loader";
 import CasesService from "./API/CasesService";
 import { useFetching } from "./components/hooks/useFetching";
 import WorldRateItem from "./components/UI/items/CaseWorldItem";
-import "./index.css"
+import "./styles/index.css"
 
 
 function WorldCovid(){
@@ -24,7 +24,7 @@ function WorldCovid(){
             <div className="relative flex justify-center top-1/4">
               <div>
                 {isCases
-                    ? <div className="flex justify-center mt-50"><Loader/></div>
+                    ? <div className="flex justify-center mt-40"><Loader/></div>
                     : <WorldRateItem info={cases} query={"World"}/>
                 } 
                 </div>

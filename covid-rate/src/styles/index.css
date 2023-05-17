@@ -1,6 +1,9 @@
+@import url("react-datepicker/dist/react-datepicker.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
     margin: 0;
@@ -36,4 +39,32 @@
     color:aliceblue;
     transition:  250ms ease-out 100ms;
     transform: translateY(-3px);
+}
+
+.react-datepicker-wrapper{
+    width:170px;
+}
+
+.react-datepicker-ignore-onclickoutside{
+    width:140px;
+
+}
+
+input{
+    width:146px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.react-datepicker__input-container{
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-left: 7px;
+    padding: 2px 2px;
+}
+
+.react-datepicker__calendar-icon{
+    font-size: 30px;
 }

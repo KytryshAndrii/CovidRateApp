@@ -13,8 +13,8 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                          {value:"Down", label:"DownDate"}]
 
     return (
-        <div className="flex justify-around gap-x-[10%] gap-y-[6rem]">
-           <div className="flex gap-[7px] w-full mb-[20px]"> 
+        <div className="flex justify-between gap-x-[10%] gap-y-[6rem]">
+           <div className="flex gap-[7px] w-full mb-[20px] ml-[100px]"> 
             <MySelect
                 isDisabled = {false}
                 onChange={e => setFilter({...filter, sort: e})}
@@ -37,7 +37,7 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                 placeholder={"Choose Filter"}
             />
             </div> 
-                <div className="flex flex-row text-2xl p-1 gap-[0.3rem]">
+                <div className="flex flex-row text-[21px] p-1 gap-[0.7rem] mr-[200px]">
                 <p>From</p>
                     <CalendarSelect 
                         format= {"yyy-MM-dd"}

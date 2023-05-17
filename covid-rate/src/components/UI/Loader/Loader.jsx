@@ -2,8 +2,7 @@ import React from "react";
 import cl from './LoaderCSS.module.css';
 const Loader = () => {
     return (
-        <div className={cl.loader}>
-        </div>
+        <div className={cl.loader}></div>
     );
 };
 
