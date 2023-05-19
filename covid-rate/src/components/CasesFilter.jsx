@@ -37,7 +37,7 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                 placeholder={"Choose Filter"}
             />
             </div> 
-                <div className="flex flex-row text-[21px] p-1 gap-[0.7rem] mr-[200px]">
+                <div className="flex flex-row text-[21px] p-1 gap-[0.7rem] mr-[150px]">
                 <p>From</p>
                     <CalendarSelect 
                         format= {"yyy-MM-dd"}
