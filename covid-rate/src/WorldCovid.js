@@ -3,7 +3,7 @@ import Loader from "./components/UI/Loader/Loader";
 import CasesService from "./API/CasesService";
 import { useFetching } from "./components/hooks/useFetching";
 import WorldRateItem from "./components/UI/items/CaseWorldItem";
-import "./styles/index.css"
+import "./styles/index.css";
 
 
 function WorldCovid(){
@@ -13,7 +13,7 @@ function WorldCovid(){
 
     const [fetchCases, isCases, casesError] = useFetching(async ()=>{
         const [global, byCountry] = await CasesService.getWorldSummaryCovidRate();
-        setCases(global);
+            setCases(global);
         })
 
     useEffect(()=>{
