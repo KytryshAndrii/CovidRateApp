@@ -12,9 +12,10 @@ function WorldCovid(){
 
 
     const [fetchCases, isCases, casesError] = useFetching(async ()=>{
-        const [global, byCountry] = await CasesService.getWorldSummaryCovidRate();
-            setCases(global);
-        })
+        const global = await CasesService.getWorldSummaryCovidRate();
+        setCases(global);
+    })
+
 
     useEffect(()=>{
         fetchCases();

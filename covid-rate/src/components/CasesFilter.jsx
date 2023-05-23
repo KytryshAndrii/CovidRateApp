@@ -7,7 +7,8 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
 
     let status_options = [{value: "confirmed", label: "Confirmed"},
     {value: "deaths", label: "Deaths"},
-    {value: "recovered", label: "Recovered"}];
+    {value: "recovered", label: "Recovered"},
+    {value: "active", label: "Active"}];
 
     let query_options = [{value:"Up", label:"UpDate"},
                          {value:"Down", label:"DownDate"}]

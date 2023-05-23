@@ -4,9 +4,9 @@ const CaseItem = (props) => {
     return(
         <div className ="flex justify-between items-center text-lg p-4 rounded-sm border-amber-400 border-2 mt-15">
             <div>
-                <strong> Date: {props.cases.Date.slice(0, 10)}</strong>
+                <strong> Date: {props.cases.last_updated_at}</strong>
                 <div>
-                   <strong>Number of Cases</strong> : {props.cases.Cases}
+                   <strong>Number of Cases</strong> : {props.cases.confirmed}
                 </div>
             </div>
         </div>
