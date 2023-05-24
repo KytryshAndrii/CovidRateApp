@@ -8,7 +8,8 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
     let status_options = [{value: "confirmed", label: "Confirmed"},
     {value: "deaths", label: "Deaths"},
     {value: "recovered", label: "Recovered"},
-    {value: "active", label: "Active"}];
+    {value: "active", label: "Active"},
+    {value: "total", label: "Total"}];
 
     let query_options = [{value:"Up", label:"UpDate"},
                          {value:"Down", label:"DownDate"}]
@@ -35,7 +36,7 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
                 onChange={e => setFilter({...filter, query: e})}
                 value={filter.query}
                 options={query_options}
-                placeholder={"Choose Filter"}
+                placeholder={"Choose Date Filter"}
             />
             </div> 
                 <div className="flex flex-row text-[21px] p-1 gap-[0.7rem] mr-[150px]">

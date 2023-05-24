@@ -80,12 +80,13 @@ function CustomCountryCovid(){
                 {isCases
                     ? <div className="relative flex justify-center"><Loader/></div>
                     : 
-                    <div className="relative flex justify-evenly mt-[3%] ml-[15%]">
+                    <div className="relative flex justify-evenly mt-[3%] ml-[10%]">
                         <div className="w-600px]">
                                 <CasesList cases={sortedAndSearchCases} iso2={filter.sort.value} country={filter.sort.label}/>
                         </div>
                         <div className="ml-[25px]">
                             <CountryRateItem info={totalcases} query={"Country"}/>
+                            <DynamicChart coviddata={sortedAndSearchCases}/>
                         </div>
                     </div>
                 }

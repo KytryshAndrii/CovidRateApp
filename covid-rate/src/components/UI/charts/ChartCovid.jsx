@@ -27,21 +27,18 @@ const DynamicChart = (coviddata) => {
 
   var labels = []
   var data = []
-  console.log(coviddata.coviddata)
+  //console.log("covid data log in charts", coviddata.coviddata)
   coviddata.coviddata.map((element) => {
-    labels.push(element.Date.slice(0,-10));
-    data.push(element.Cases);
+    labels.push(element.last_updated_at);
+    data.push(element.cases);
   });
 
-  console.log(data.splice((data.length)-100, data.length));
-  console.log(labels.slice((labels.length)-100, labels.length));
-
  var  chartData = {
-    labels: labels.slice((labels.length)-100, labels.length),
+    labels: labels,
     datasets: [
       {
         label: "Covid Cases",
-        data: data.splice((data.length)-100, data.length),
+        data: data,
         backgroundColor: ["rgba(255, 99, 132, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)"],
         borderWidth: 1

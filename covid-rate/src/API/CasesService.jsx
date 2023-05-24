@@ -16,9 +16,37 @@ export default class CasesService {
         if(Object.keys(response.data).length < 1){
             return 0;
         }
-        console.log("Our date: ", datefrom, dateto);
-        console.log("in covid rate: ", response.data.sort((a)=>{return new Date(a.last_updated_at) >= datefrom && new Date(a.last_updated_at) <= dateto}));
-        return response.data
+        var result = [];
+        switch(status){
+            case "active":
+                response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){
+                    result.push({"last_updated_at": a.last_updated_at, "cases": a.active})}});
+                return result;
+           case "confirmed":
+                response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){
+                result.push({"last_updated_at": a.last_updated_at, "cases": a.confirmed})}});
+                return result;
+            case "deaths":
+                response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){
+                result.push({"last_updated_at": a.last_updated_at, "cases": a.deaths})}});
+                return result;
+            case "recovered":
+                response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){
+                result.push({"last_updated_at": a.last_updated_at, "cases": a.recovered})}});
+                return result;
+            case "total":
+                return response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){return a}});
+        }
+    }
+
+    static async getCovidRateByWorld(){
+        const response = await axios.get("https://mahabub81.github.io/covid-19-api/api/v1/world-summary-time-series.json");
+        if(Object.keys(response.data).length < 1){
+            return 0;
+        }
+        var result = [];
+        response.data.filter((a)=>{result.push({"last_updated_at": a.date, "cases": a.confirmed})});
+        return result;
     }
     
     static async getWorldSummaryCovidRate(){
