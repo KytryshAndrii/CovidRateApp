@@ -1,4 +1,4 @@
-# CovidRateApp V0.2
+# CovidRateApp V0.4
 CovidRateApp allows you to observe the Covid cases of diferent status in each country or in the world
 
 ## Table of data around the world 
@@ -26,5 +26,6 @@ To run this project, install it locally cloning repo than  using npm:
 ### Version:
 * V0.1 [First version - first deploy]
 * V0.2 [TailwindCSS was added]
-* V0.3 [Currently - updated API]
-* V0.4 [Next]
+* V0.3 [New Custom Page design]
+* V0.4 [Currently - updated API]
+* V0.5 [Next]
