@@ -25,5 +25,6 @@ To run this project, install it locally cloning repo than  using npm:
 
 ### Version:
 * V0.1 [First version - first deploy]
-* V0.2 [Currently - added TailwindCSS]
-* V0.3 [Next]
+* V0.2 [TailwindCSS was added]
+* V0.3 [Currently - updated API]
+* V0.4 [Next]
