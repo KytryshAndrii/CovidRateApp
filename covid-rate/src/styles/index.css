@@ -42,7 +42,8 @@
 }
 
 .react-datepicker-wrapper{
-    width:170px;
+    width:200px;
+    height: 50px;
 }
 
 .react-datepicker-ignore-onclickoutside{
@@ -51,6 +52,7 @@
 }
 
 input{
+    padding: 0;
     width:146px;
     border-radius: 6px;
     font-size: 16px;
@@ -67,4 +69,25 @@ input{
 
 .react-datepicker__calendar-icon{
     font-size: 30px;
+}
+
+.react-datepicker__view-calendar-icon{
+    padding: 0;
+}
+
+.react-datepicker-ignore-onclickoutside {
+    width: 148px;
+}
+
+.react-datepicker-ignore-onclickoutside:focus-visible {
+}
+
+.react-datepicker-popper[data-placement^="bottom"]{
+    padding: 0;
+}
+
+.react-datepicker-popper{
+    position: absolute;
+    inset: 0px auto auto 0px;
+    transform: translate(960px, 397px);
 }

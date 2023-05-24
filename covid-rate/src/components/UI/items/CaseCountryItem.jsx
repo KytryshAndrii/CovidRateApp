@@ -1,6 +1,6 @@
 import React from "react";
 
-const WorldRateItem = (props) =>{
+const CountryRateItem = (props) =>{
     return(
         <div className="p-wpad rounded-sm border-amber-400 border-2 w-600 -mt-[10px]">
             <h2 className=" font-semibold">{props.query} Covid Summary Rate</h2>
@@ -13,7 +13,7 @@ const WorldRateItem = (props) =>{
                     <p>New Active Cases: </p>
                 </div>
                 <div>
-                    <p> {props.info.last_update}</p>
+                    <p> {props.info.last_updated_at}</p>
                     <p>{props.info.confirmed}</p>
                     <p>{props.info.deaths}</p>
                     <p>{props.info.recovered}</p>
@@ -26,4 +26,4 @@ const WorldRateItem = (props) =>{
 
 };
 
-export default WorldRateItem;
+export default CountryRateItem;

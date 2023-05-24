@@ -7,10 +7,10 @@ export const useCases = (cases, query) => {
       return []
     }
     else if(query.value === "Up"){
-      return [...cases].sort((a, b) => a.Date < b.Date);
+      return [...cases].sort((a, b) => a.last_updated_at < b.last_updated_at);
     }
     else if(query.value === "Down"){
-      return [...cases].sort((a, b) => a.Date > b.Date);
+      return [...cases].sort((a, b) => a.last_updated_at > b.last_updated_at);
     }
   }, [cases, query])
   return sortedPosts;

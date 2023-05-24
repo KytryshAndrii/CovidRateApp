@@ -6,7 +6,7 @@ import MyButton from "./components/UI/button/MyButton";
 import CasesFilter from "./components/CasesFilter";
 import {useCases} from "./components/hooks/useCases";
 import CasesList from "./components/CasesList"
-import WorldRateItem from "./components/UI/items/CaseWorldItem";
+import CountryRateItem from "./components/UI/items/CaseCountryItem";
 import preparedata from "./components/utils/DatePrepare";
 import DynamicChart from "./components/UI/charts/ChartCovid";
 import "./styles/index.css"
@@ -18,11 +18,12 @@ function CustomCountryCovid(){
     const[totalcases, setTotalCases] = useState([]);
 
     const[filter, setFilter] = useState({query:"", sort:"", state_sort:"", 
-    data_from: new Date("2019-12-10T00:00:00Z"), data_to: new Date("2021-12-10T00:00:00Z")});
+    data_from: new Date("2019-12-10"), data_to: new Date("2021-12-10")});
     
     const result = useCases(cases, filter.query);
     const[isdis, setIsdis] = useState(true);
     const[sortedAndSearchCases, setSortedAndSearchCases] = useState("");
+    console.log("serched and sorted: ", sortedAndSearchCases);
     const [countries, setCountries] = useState([]);
     
     const [fetchCountry, isCountries, countryError] = useFetching(async ()=>{
@@ -34,9 +35,9 @@ function CustomCountryCovid(){
         if(filter.sort !== "" && filter.state_sort !== ""){
             const date_info = preparedata(filter);
             const response = await CasesService.getCovidRateByCountry(date_info[0], date_info[1], filter.state_sort.value, filter.sort.value);
-                const [global, byCountry] = await CasesService.getWorldSummaryCovidRate();
+            const byCountry = await CasesService.getCountriesSummaryCovidRate(filter.sort.value);
             if(response !== 0){
-                setTotalCases(byCountry.find(item=>item.CountryCode === filter.sort.value));
+                setTotalCases(byCountry.latest);
                 console.log(response);
                 setCases(response);
                 setIsdis(false);
@@ -79,12 +80,12 @@ function CustomCountryCovid(){
                 {isCases
                     ? <div className="relative flex justify-center"><Loader/></div>
                     : 
-                    <div className="relative flex justify-evenly mt-[3%] ml-[15%]">
+                    <div className="relative flex justify-evenly mt-[3%] ml-[10%]">
                         <div className="w-600px]">
-                                <CasesList cases={sortedAndSearchCases}/>
+                                <CasesList cases={sortedAndSearchCases} iso2={filter.sort.value} country={filter.sort.label}/>
                         </div>
                         <div className="ml-[25px]">
-                            <WorldRateItem info={totalcases} query={"Country"}/>
+                            <CountryRateItem info={totalcases} query={"Country"}/>
                             <DynamicChart coviddata={sortedAndSearchCases}/>
                         </div>
                     </div>
@@ -94,5 +95,5 @@ function CustomCountryCovid(){
             </div>
     );
 }
-
+// <DynamicChart coviddata={sortedAndSearchCases}/>
 export default CustomCountryCovid;

@@ -3,8 +3,8 @@ import CaseItem from "./UI/items/CaseItem";
 import countryFlagEmoji from "country-flag-emoji";
 import Key from "./utils/KeyGenerator";
 
-const CasesList = (cases) => {
-    if(!cases.cases){
+const CasesList = (props) => {
+    if(!props.cases){
         return (
         <h1 className="text-center font-semibold">No Cases were Found</h1>
         );
@@ -12,9 +12,9 @@ const CasesList = (cases) => {
     return(
         <div>
             <h1  className="text-center font-semibold">
-                {countryFlagEmoji.get(cases.cases[0].CountryCode).emoji} {cases.cases[0].Country}
+                {countryFlagEmoji.get(props.iso2).emoji} {props.country}
             </h1>
-            {cases.cases.map((elems, id)=>
+            {props.cases.map((elems, id)=>
                     <CaseItem cases={elems} key={Key(id)}/>
                 )}
         </div>
