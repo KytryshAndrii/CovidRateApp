@@ -9,7 +9,7 @@ import { Chart,
   Legend,} from "chart.js"
 import { Line } from "react-chartjs-2";
 
-const StatisticChart = (coviddata) => {
+const MultyAxisChart = (coviddata) => {
 
   if(!coviddata.coviddata){
     return (<p></p>);
@@ -100,4 +100,4 @@ const StatisticChart = (coviddata) => {
         </div>
     </div>
   ); };
-export default StatisticChart;
+export default MultyAxisChart;
