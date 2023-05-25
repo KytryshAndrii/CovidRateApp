@@ -26,12 +26,11 @@ const MultyAxisChart = (coviddata) => {
     )
 
   var tmp;
-  var first;
-  var second; 
-  var third;
-  var everage;
   var labels = [];
-  var data = [];
+  var recovered = [];
+  var death = [];
+  var confirmed = [];
+  var active = [];
   //console.log("covid data log in charts", coviddata.coviddata)
   //console.log(delta);
   for (let i = 0; i < coviddata.coviddata.length; i=i+3) {
@@ -39,63 +38,107 @@ const MultyAxisChart = (coviddata) => {
     labels.push(tmp.last_updated_at);
   }
 
-  for(let i = 0; i < coviddata.coviddata.length -1 ; i++){
-    first = coviddata.coviddata[i];
-    second =  coviddata.coviddata[i+1];
-    if (coviddata.coviddata[i+2]){ 
-        third =  coviddata.coviddata[i+2];
-        everage = (first.cases + second.cases + third.cases) / 3;
-        data.push(everage);
-    }else{
-        everage = (first.cases + second.cases) / 2;
-        data.push(everage);
-    }
-}
+  coviddata.coviddata.map((element)=>{
+    recovered.push(element.recovered);
+    confirmed.push(element.confirmed);
+    death.push(element.deaths);
+    active.push(element.active);
+  });
 
-  var EverageStaticData ={
-    labels: labels,
-    datasets: [
-      {
-        label: "Avarage amount of cases",
-        data: data,
-        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-        borderColor: ["rgba(255, 99, 132, 1)"],
-        borderWidth: 1
-        },
-    ]};
-
-  
-
-  var EverageStaticOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Statistic',
-        },
-        scales: {
-            y:
-             {
-                stepSize: 100,
-            },
-            x:
-            {
-            },
-        },
+  const MultyData = {
+  labels: labels,
+  datasets: [
+    {
+      label: 'Confirmed',
+      data: confirmed,
+      backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+      borderColor: ["rgba(255, 99, 132, 1)"],
+      borderWidth: 1,
+      yAxisID: 'y',
     },
-}
+    {
+      label: 'Deaths',
+      data: death,
+      backgroundColor: ["blue"],
+      borderColor: ["blue"],
+      borderWidth: 1,
+      yAxisID: 'y1',
+    },
+    {
+      label: 'Active',
+      data: active,
+      backgroundColor: ["orange"],
+      borderColor: ["orange"],
+      borderWidth: 1,
+      yAxisID: 'y2',
+    },
+    {
+      label: 'Recovered',
+      data: recovered,
+      backgroundColor: ["purple"],
+      borderColor: ["purple"],
+      borderWidth: 1,
+      yAxisID: 'y3',
+    }
+  ]
+};
+
+const MultyOptions = {
+  type: 'line',
+  data: MultyData,
+  options: {
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    stacked: false,
+    plugins: {
+      title: {
+        display: true,
+        text: 'General Information'
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+      },
+      y1: {
+        type: 'linear',
+        display: false,
+        position: 'left'
+      },
+      y2: {
+        type: 'linear',
+        display: false,
+        position: 'left'
+      },
+      y3: {
+        type: 'linear',
+        display: false,
+        position: 'tight'
+      }
+    },
+        // grid line settings
+      grid: {
+          drawBorder: false,
+          display: false,
+          drawOnChartArea: false, // only want the grid lines for one axis to show up
+        },
+      },
+    };
+
 
 
   return (
     <div className="Chart">
-      <h1>Average Statistic Rate</h1>
+      <h1>General Information</h1>
       <div>
         <Line
-            data={EverageStaticData}
-            options={EverageStaticOptions}
+            data={MultyData}
+            options={MultyOptions}
         />
         </div>
     </div>

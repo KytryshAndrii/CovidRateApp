@@ -34,7 +34,7 @@ export default class CasesService {
                 response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){
                 result.push({"last_updated_at": a.last_updated_at, "cases": a.recovered})}});
                 return result;
-            case "total":
+            case "general":
                 return response.data.filter((a)=>{if( a.last_updated_at >= datefrom && a.last_updated_at <= dateto){return a}});
         }
     }

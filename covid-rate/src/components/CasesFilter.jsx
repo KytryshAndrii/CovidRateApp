@@ -9,7 +9,7 @@ const CasesFilter = ({additional, filter, setFilter, sortstatus}) => {
     {value: "deaths", label: "Deaths"},
     {value: "recovered", label: "Recovered"},
     {value: "active", label: "Active"},
-    {value: "total", label: "Total"}];
+    {value: "general", label: "General"}];
 
     let query_options = [{value:"Up", label:"UpDate"},
                          {value:"Down", label:"DownDate"}]

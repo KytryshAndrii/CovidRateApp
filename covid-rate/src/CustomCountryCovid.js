@@ -11,6 +11,7 @@ import preparedata from "./components/utils/DatePrepare";
 import DynamicChart from "./components/UI/charts/ChartCovid";
 import StatisticChart from "./components/UI/charts/StatisticChart";
 import "./styles/index.css"
+import MultyAxisChart from "./components/UI/charts/MultyAxisChart";
 
 
 function CustomCountryCovid(){
@@ -89,6 +90,7 @@ function CustomCountryCovid(){
                             <CountryRateItem info={totalcases} query={"Country"}/>
                             <DynamicChart coviddata={sortedAndSearchCases}/>
                             <StatisticChart coviddata={sortedAndSearchCases}/>
+                            <MultyAxisChart coviddata={sortedAndSearchCases} />
                         </div>
                     </div>
                 }
