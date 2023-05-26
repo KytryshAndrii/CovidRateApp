@@ -66,7 +66,7 @@ function CustomCountryCovid(){
                 <div>
             {isCountries
                 ?<div className="relative mt-[90px] left-[47%] "><Loader/></div> 
-                :<><div className="flex-col p-cpad ml-[12.5%] mt-[4%] w-[77%] h-[155px] rounded-xl shadow-4xl border-2">
+                :<><div><div className="flex-col p-cpad ml-[12.5%] mt-[4%] w-[77%] h-[155px] rounded-xl shadow-4xl border-2">
                     <CasesFilter
                     additional={countries}
                     filter={filter}
@@ -78,7 +78,7 @@ function CustomCountryCovid(){
                             Search Covid Cases
                         </MyButton>
                     </div>
-                </div> 
+                    </div></div> 
                 {isCases
                     ? <div className="relative flex justify-center"><Loader/></div>
                     : 
@@ -88,7 +88,7 @@ function CustomCountryCovid(){
                         </div>
                         <div className="ml-[25px]">
                             <CountryRateItem info={totalcases} query={"Country"}/>
-                            <DynamicChart coviddata={sortedAndSearchCases}/>
+                            <div className="w-[900px] mt-[50px]"><DynamicChart coviddata={sortedAndSearchCases}/></div>
                         </div>
                     </div>
                 }

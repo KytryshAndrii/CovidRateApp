@@ -29,9 +29,8 @@ function WorldCovid(){
               <div>
                 {isCases && data
                     ? <div className="flex justify-center mt-40"><Loader/></div>
-                    : <div><WorldRateItem info={cases} query={"World"}/><div className="mt-[50px] h-[500px]">
-                        <DynamicChart coviddata={data}/></div></div>
-
+                    : <div className="mb-[30px]"><WorldRateItem info={cases} query={"World"}/>
+                       <div className="ml-[100px] w-[1100px]"> <DynamicChart coviddata={data}/></div></div>
                 }
                 </div>
             </div>
