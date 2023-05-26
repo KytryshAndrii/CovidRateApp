@@ -89,8 +89,6 @@ function CustomCountryCovid(){
                         <div className="ml-[25px]">
                             <CountryRateItem info={totalcases} query={"Country"}/>
                             <DynamicChart coviddata={sortedAndSearchCases}/>
-                            <StatisticChart coviddata={sortedAndSearchCases}/>
-                            <MultyAxisChart coviddata={sortedAndSearchCases} />
                         </div>
                     </div>
                 }
