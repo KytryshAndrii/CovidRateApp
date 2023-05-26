@@ -10,8 +10,8 @@ const CasesList = (props) => {
         );
     }
     return(
-        <div>
-            <h1  className="text-center font-semibold">
+        <div className="p-[15px] rounded-sm rounded-xl shadow-4xl border-2">
+            <h1  className="text-center font-bold">
                 {countryFlagEmoji.get(props.iso2).emoji} {props.country}
             </h1>
             {props.cases.map((elems, id)=>

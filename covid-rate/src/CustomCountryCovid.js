@@ -80,7 +80,7 @@ function CustomCountryCovid(){
                     </div>
                 </div> 
                 {isCases
-                    ? <div className="relative flex justify-center"><Loader/></div>
+                    ? <div className="relative flex justify-center mt-[100px]"><Loader/></div>
                     : 
                     <div className="relative flex justify-evenly mt-[3%] ml-[10%]">
                         <div className="w-600px]">
@@ -88,9 +88,7 @@ function CustomCountryCovid(){
                         </div>
                         <div className="ml-[25px]">
                             <CountryRateItem info={totalcases} query={"Country"}/>
-                            <DynamicChart coviddata={sortedAndSearchCases}/>
-                            <StatisticChart coviddata={sortedAndSearchCases}/>
-                            <MultyAxisChart coviddata={sortedAndSearchCases} />
+                            <div className="w-[900px] mt-[30px]"><DynamicChart coviddata={sortedAndSearchCases}/></div>
                         </div>
                     </div>
                 }
