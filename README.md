@@ -10,7 +10,7 @@ Currently CovidRate is desktop only application.
 ![Main web-site screen](./ReadmePhotos/WorldPage.png)
 
 Main screen of website represents a table with few lines of world wide covid rate. 
-Information that represents in table is getting from [Covid19 API](https://covid19api.com/) 
+Information that represents in table is getting from [covid-19-api](https://github.com/mahabub81/covid-19-api) 
 Last date of updating is provided as well as information charts bellow the table.
 
 
